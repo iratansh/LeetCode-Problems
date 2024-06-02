@@ -1,8 +1,18 @@
 class Solution:
     def isValid(self, s: str) -> bool:
+        stack = []
+
         if len(s) % 2 == 0:
-            characters_dict = {'(':')', '[':']', '{':'}'}
-            for i in range(len(s) - 1):
-                if characters_dict[s[i]] == s[i + 1]:
-                    return True
+            for el in s:
+                if el == "(" or el == "[" or el == "{":
+                    stack.append(el)
+                elif stack and el == ")" and stack[-1] == "(":
+                    stack.pop()
+                elif stack and el == "]" and stack[-1] == "[":
+                    stack.pop()
+                elif stack and el == "}" and stack[-1] == "{":
+                    stack.pop()
+                else:
+                    return False
+            return len(stack) == 0
         return False
