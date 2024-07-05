@@ -1,6 +1,5 @@
 class Solution:
     def findMin(self, nums: List[int]) -> int:
-        sortednums = sorted(nums)
         start, end = 0, len(nums) - 1
         ans = nums[0]
 
