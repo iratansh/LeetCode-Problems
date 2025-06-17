@@ -1,0 +1,4 @@
+class Solution:
+    def sortTheStudents(self, score: List[List[int]], k: int) -> List[List[int]]:
+        # sort the column of values of the matrix associated with k
+        return sorted(score, key=lambda r:r[k], reverse=True)
